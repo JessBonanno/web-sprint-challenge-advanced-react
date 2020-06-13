@@ -21,9 +21,14 @@ const CheckoutForm = (props) => {
 
   return (
     <>
-      <form data-testid='form' onSubmit={handleSubmit}>
-        <h2 data-testid='form-header'>Checkout Form</h2>
-        <label>
+      <form
+        className={props.darkMode && 'light-form'}
+        data-testid='form'
+        onSubmit={handleSubmit}>
+        <h2 className={props.darkMode && 'light-h2'} data-testid='form-header'>
+          Checkout Form
+        </h2>
+        <label className={props.darkMode && 'label-light'}>
           First Name:
           <input
             data-testid='firstname'
@@ -32,7 +37,7 @@ const CheckoutForm = (props) => {
             onChange={handleChanges}
           />
         </label>
-        <label>
+        <label className={props.darkMode && 'label-light'}>
           Last Name:
           <input
             data-testid='lastname'
@@ -41,7 +46,7 @@ const CheckoutForm = (props) => {
             onChange={handleChanges}
           />
         </label>
-        <label>
+        <label className={props.darkMode && 'label-light'}>
           Address:
           <input
             data-testid='address'
@@ -50,7 +55,7 @@ const CheckoutForm = (props) => {
             onChange={handleChanges}
           />
         </label>
-        <label>
+        <label className={props.darkMode && 'label-light'}>
           City:
           <input
             data-testid='city'
@@ -59,7 +64,7 @@ const CheckoutForm = (props) => {
             onChange={handleChanges}
           />
         </label>
-        <label>
+        <label className={props.darkMode && 'label-light'}>
           State:
           <input
             data-testid='state'
@@ -68,7 +73,7 @@ const CheckoutForm = (props) => {
             onChange={handleChanges}
           />
         </label>
-        <label>
+        <label className={props.darkMode && 'label-light'}>
           Zip:
           <input
             data-testid='zip'
@@ -77,13 +82,19 @@ const CheckoutForm = (props) => {
             onChange={handleChanges}
           />
         </label>
-        <button data-testid='button'>Checkout</button>
+        <button
+          className={
+            props.darkMode ? 'plant-button light-button' : 'plant-button'
+          }
+          data-testid='button'>
+          Checkout
+        </button>
       </form>
 
       {showSuccessMessage && (
         <div
           data-testid='message'
-          className='success-message'
+          className={props.darkMode ? 'success-message success-message-light' : 'success-message'}
           data-testid='successMessage'>
           <p>
             You have ordered some plants! Woo-hoo! <span role='img'>🎉</span>
